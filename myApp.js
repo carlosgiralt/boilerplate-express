@@ -36,6 +36,12 @@ app.get('/now',
   }
 )
 
+app.get('/:word/echo', (req, res) => {
+  res.send({
+    "echo": req.params.word
+  });
+})
+
 
 
 
