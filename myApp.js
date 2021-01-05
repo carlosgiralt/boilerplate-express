@@ -45,12 +45,23 @@ app.get('/:word/echo', (req, res) => {
   });
 })
 
-app.get('/name', (req, res) => {
+const get_name = (req, res) => {
   const { first: firstName, last: lastName } = req.query;
   res.send({
     "name": `${firstName} ${lastName}`
   });
-})
+};
+
+const set_name = (req, res) => {  
+  const { first: firstName, last: lastName } = req.body;
+  res.send({
+    "name": `${firstName} ${lastName}`
+  });
+};
+
+app.route('/name')
+  .get(get_name)
+  .post(set_name)
 
 
 
